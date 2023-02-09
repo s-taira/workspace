@@ -15,6 +15,12 @@ class ImageApi(ListCreateAPIView):
     serializer_class = ImageSerializer
 
     def exam_post(self, image_path):
+        '''
+        example.comに画像分析リクエストを投げる
+
+        パラメータ:image_path 分析対象のイメージパス
+        戻り値：解析結果
+        '''
         
         url = 'http://example.com'
         data = {
@@ -28,14 +34,19 @@ class ImageApi(ListCreateAPIView):
         return json.loads(response.json)
 
     def post(self, request):
+        '''
+        画像分析を行い、結果をデータベースに保存する
+        '''
         request_ts = int(time.time())
 
+        # image_pathが指定されていない場合は400を返す
         r_body = request.data
         if 'image_path' not in r_body:
             return Response(
                 '{"message":"not specified image_path param"}',
                 status=status.HTTP_400_BAD_REQUEST)
 
+        # 画像分析を実施
         try:
             json_dict = self.exam_post(r_body['image_path'])
         except RequestException:
