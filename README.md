@@ -12,7 +12,7 @@ dev container上にMySQL, PHP,  Djangoの3つのコンテナを展開。
 DJangoの環境は[DockerFile](https://github.com/s-taira/workspace/blob/main/.devcontainer/Dockerfile)参照
 
 # アプリケーション構成
-testApiApp -> プロジェクト
+testApiApp -> プロジェクト  
 images -> APIアプリ
 
 APIはRestFrameworkを利用。  
