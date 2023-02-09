@@ -11,6 +11,13 @@ dev container上にMySQL, PHP,  Djangoの3つのコンテナを展開。
 
 DJangoの環境は[DockerFile](https://github.com/s-taira/workspace/blob/main/.devcontainer/Dockerfile)参照
 
+# アプリケーション構成
+testApiApp -> プロジェクト
+images -> APIアプリ
+
+APIはRestFrameworkを利用。  
+API Viewはview.pyではなくapi.pyを用意しそちらに記述。  
+
 # 実行手順
 codeをpull後、VisualStdio Codeより"Open Folder in Contaier"を実行するとコンテナが作成されます。  
   
